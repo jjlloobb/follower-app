@@ -1,0 +1,51 @@
+<div class="row my-2">
+    <div class="col-4">
+        <ul class="list-group">
+            <li href="" class="list-group-item list-group-item-success" [class.active]="viewMode == 'map'"
+                [class.visually-hidden]="viewMode == 'map'"><a (click)="viewMode = 'map'">Map
+                    View</a></li>
+            <li href="" class="list-group-item list-group-item-success" [class.active]="viewMode == 'list'"
+                [class.visually-hidden]="viewMode == 'list'"><a (click)="viewMode = 'list'">List
+                    View</a></li>
+        </ul>
+        <div [ngSwitch]="viewMode">
+            <div *ngSwitchCase="'map'">
+                Map View Content
+            </div>
+            <div *ngSwitchCase="'list'">
+                List View Content
+            </div>
+            <div *ngSwitchDefault>
+                Otherwise
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        <button class="btn btn-primary" (click)="loadSongs()">Load Songs</button>
+        <button class="btn btn-success mx-2" *ngIf="songs.length > 0" (click)="onAdd()">Add</button>
+        <ul class="my-2">
+            <li *ngFor="let j of songs; trackBy: trackSong; even as isEven">
+                {{ j.name }} <span *ngIf="isEven">(EVEN)</span>
+                <button class="btn btn-danger mx-4" (click)="onRemove(j)">Remove</button>
+                <button class="btn btn-warning mx-4" (click)="onChange(j)">Change</button>
+            </li>
+        </ul>
+    </div>
+    <div class="col-2">
+        <button class="mx-2" [ngStyle]="{
+            'backgroundColor': canSave ? 'blue' : 'gray',
+            'color': canSave ? 'white' : 'black',
+            'fontWeight': canSave ? 'bold' : 'normal'
+        }">
+            Save
+        </button>
+        <span>
+            {{ task.assignee.name }}
+        </span>
+    </div>
+</div>
+<div class="row my-2">
+    <div class="col-12">
+        <input type="text" [appInputFormat]="'uppercase'" />
+    </div>
+</div>

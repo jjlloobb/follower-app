@@ -1,0 +1,68 @@
+@if (authors.length > 0) {
+<h2>{{ authors.length }} {{ title }}</h2>
+<ul>
+
+    @for (j of authors; track $index) {
+    <li>
+        {{ j }}
+    </li>
+    }
+</ul>
+} @else {
+<h1>No authors yet</h1>
+}
+<div class="row">
+    <div class="col-12 my-2">
+        <img class="img-fluid" src="{{ imageUrl }}" alt="image" />
+    </div>
+    <div class="col-12 my-2">
+        <img class="img-fluid" [src]="imageUrl" alt="image2" />
+    </div>
+</div>
+<table>
+    <tr>
+        <td [attr.colspan]="colSpan"></td>
+    </tr>
+</table>
+<div class="row my-2">
+    <div class="col-2">
+        <input (keyup.enter)="onKeyUp()" />
+    </div>
+    <div class="col-2">
+        <input #email (keyup.esc)="onKeyUp2(email.value)" />
+    </div>
+    <div class="col-2">
+        <input [value]="email3" (keyup.esc)="email3 = $any($event.target).value; onKeyUp3()" />
+    </div>
+    <div class="col-2">
+        <input [(ngModel)]="email4" (keyup.esc)="onKeyUp4()" />
+    </div>
+</div>
+<div class="row my-2" (click)="onDivClicked()">
+    <div class="col-2">
+        <button (click)="onSave($event)" [style.backgroundColor]="isActive ? 'blue' : 'green'" class="btn btn-primary"
+            [class.active]="isActive">
+            Save
+        </button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <p>{{ course.title | uppercase | lowercase }}</p>
+    </div>
+    <div class="col-12">
+        <p>{{ course.students | number }}</p>
+    </div>
+    <div class="col-12">
+        <p>{{ course.rating | number: "1.2-2" }}</p>
+    </div>
+    <div class="col-12">
+        <p>{{ course.price | currency: "CAD": true: "3.2-2" }}</p>
+    </div>
+    <div class="col-12">
+        <p>{{ course.releaseDate | date: "shortDate" }}</p>
+    </div>
+    <div class="col-12">
+        <p>{{ text | summary: 10 }}</p>
+    </div>
+</div>

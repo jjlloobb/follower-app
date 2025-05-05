@@ -1,0 +1,26 @@
+.zippy {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+}
+
+.zippy-heading {
+    font-weight: bold;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.zippy-body {
+    padding: 20px;
+}
+
+.expanded {
+    background: #f0f0f0;
+}
+
+.bi.bi-arrow-up {
+    float: right;
+}
+
+.bi.bi-arrow-down {
+    float: right;
+}

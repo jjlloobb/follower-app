@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-12">
+        <div class="zippy my-2">
+            <div class="zippy-heading" [class.expanded]="isExpanded" (click)="toggle()">
+                {{ title }}
+                <i class="bi" [class.bi-arrow-up]="isExpanded" [class.bi-arrow-down]="!isExpanded"></i>
+            </div>
+            <div *ngIf="isExpanded" class="zippy-body">
+                <ng-content></ng-content>
+            </div>
+        </div>
+    </div>
+</div>

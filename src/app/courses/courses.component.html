@@ -1,0 +1,12 @@
+@if (courses.length > 0) {
+<h2>{{ title }}</h2>
+<ul>
+    @for (j of courses; track $index) {
+    <li>
+        {{ j }}
+    </li>
+    }
+</ul>
+} @else {
+<h1>No courses yet</h1>
+}

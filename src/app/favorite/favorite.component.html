@@ -1,0 +1,17 @@
+<div class="row my-2">
+    <div class="col-2">
+        <i class="bi" [class.bi-star-fill]="isFavorite" [class.bi-star]="!isFavorite" (click)="onCLick()"></i>
+    </div>
+</div>
+<div class="row my-2">
+    <div class="col-2">
+        <i class="bi" [class.bi-star-fill]="isFavorite2" [class.bi-star]="!isFavorite2" (click)="onCLick2()"></i>
+    </div>
+</div>
+<div class="row my-2">
+    <div class="col-12">
+        <input type="text" [(ngModel)]="titleText" />
+        <br>
+        {{ titleText | titlecase }}
+    </div>
+</div>
